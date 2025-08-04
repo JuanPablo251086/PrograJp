@@ -1,7 +1,7 @@
 public class Jugador 
 {
     PokeDex pokedex = new PokeDex();
-    private String nombre = null;
+    private String nombre;
     private Pokemon pokemon1;
     private Pokemon pokemon2;
     private Pokemon pokemon3;
@@ -29,5 +29,9 @@ public Pokemon getPokemon(int e)
 return (this.pokemon1);
 }
 
+}
+public String getNombre()
+{
+    return(this.nombre);
 }
 }

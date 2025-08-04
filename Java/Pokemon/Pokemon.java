@@ -28,7 +28,7 @@ public class Pokemon
 
     public String toString()
     {
-        return(this.nombre + this.tipo);
+        return(this.nombre);
     }
     public void setAtaque(double valor)
     {
@@ -59,5 +59,13 @@ public class Pokemon
     public double getAtaqueEspecial()
     {
         return(this.danioEspecial);
+    }
+    public String getMovimientoAtaque()
+    {
+        return(this.movimientoAtaque);
+    }
+    public String getMovimientoEspecial()
+    {
+        return(this.movimientoEspecial);
     }
 }
