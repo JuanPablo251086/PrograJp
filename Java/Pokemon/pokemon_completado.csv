@@ -1,164 +1,151 @@
-ID,Name,Tipo,HP,Attaque,Defensa,MovimA,EfectoA,MovimE,EfectoE,DañoE
-1,Bulbasaur,Grass,45,49,49,Golpehoja,50,Tormenta Mística,DebuffD,87
-2,Ivysaur,Grass,60,62,63,Golpehoja,49,Explosión Etérea,DebuffD,98
-3,Venusaur,Grass,80,82,83,Látigo Verde,44,Rugido Solar,buffD,73
-3,VenusaurMega Venusaur,Grass,80,100,123,Látigo Verde,42,Tormenta Mística,debuffA,83
-4,Charmander,Fire,39,52,43,Ascuas,51,Explosión Etérea,DebuffD,95
-5,Charmeleon,Fire,58,64,58,Ascuas,54,Rugido Solar,buffD,78
-6,Charizard,Fire,78,84,78,Fuego Rápido,48,Tormenta Mística,debuffA,76
-6,CharizardMega Charizard X,Fire,78,130,111,Fuego Rápido,46,Grito de Guerra,buffD,98
-6,CharizardMega Charizard Y,Fire,78,104,78,Fuego Rápido,55,Eco Final,debuffA,88
-7,Squirtle,Water,44,48,65,Chorro Aqua,48,Grito de Guerra,buffD,86
-8,Wartortle,Water,59,63,80,Salpicadura,45,Eco Final,debuffA,73
-9,Blastoise,Water,79,83,100,Burbuja,49,Grito de Guerra,DebuffD,86
-9,BlastoiseMega Blastoise,Water,79,103,120,Burbuja,59,Explosión Etérea,debuffA,84
-10,Caterpie,Bug,45,30,35,Golpe Insecto,42,Aura Salvaje,debuffA,73
-11,Metapod,Bug,50,20,55,Ala Cuchilla,41,Aura Salvaje,buffD,99
-12,Butterfree,Bug,60,45,50,Golpe Insecto,51,Tormenta Mística,buffA,85
-13,Weedle,Bug,40,35,30,Picadura,47,Aura Salvaje,debuffA,70
-14,Kakuna,Bug,45,25,50,Picadura,60,Aura Salvaje,buffA,92
-15,Beedrill,Bug,65,90,40,Golpe Insecto,48,Corte Dimensional,debuffA,94
-15,BeedrillMega Beedrill,Bug,65,150,40,Picadura,49,Explosión Etérea,buffA,75
-16,Pidgey,Normal,40,45,40,Golpe Normal,50,Grito de Guerra,buffD,94
-17,Pidgeotto,Normal,63,60,55,Golpe Normal,60,Explosión Etérea,debuffA,72
-18,Pidgeot,Normal,83,80,75,Golpe Normal,48,Grito de Guerra,debuffA,85
-18,PidgeotMega Pidgeot,Normal,83,80,80,Ataque Rápido,44,Aura Salvaje,buffD,95
-19,Rattata,Normal,30,56,35,Golpe Normal,50,Grito de Guerra,DebuffD,84
-20,Raticate,Normal,55,81,60,Ataque Rápido,48,Rugido Solar,DebuffD,85
-21,Spearow,Normal,40,60,30,Ataque Rápido,44,Eco Final,debuffA,85
-22,Fearow,Normal,65,90,65,Golpe Normal,57,Eco Final,buffA,92
-23,Ekans,Poison,35,60,44,Mordisco Ácido,44,Rugido Solar,DebuffD,72
-24,Arbok,Poison,60,85,69,Veneno Rápido,48,Aura Salvaje,DebuffD,73
-25,Pikachu,Electric,35,55,40,Descarga,60,Explosión Etérea,DebuffD,98
-26,Raichu,Electric,60,90,55,Impactrueno,47,Grito de Guerra,buffD,72
-27,Sandshrew,Ground,50,75,85,Sacudida,50,Grito de Guerra,buffD,97
-28,Sandslash,Ground,75,100,110,Terremotito,52,Grito de Guerra,DebuffD,96
-29,Nidoran♀,Poison,55,47,52,Picotazo Venenoso,56,Corte Dimensional,debuffA,81
-30,Nidorina,Poison,70,62,67,Picotazo Venenoso,45,Corte Dimensional,buffD,75
-31,Nidoqueen,Poison,90,92,87,Picotazo Venenoso,51,Eco Final,debuffA,71
-32,Nidoran♂,Poison,46,57,40,Veneno Rápido,50,Rugido Solar,debuffA,81
-33,Nidorino,Poison,61,72,57,Picotazo Venenoso,59,Explosión Etérea,buffA,97
-34,Nidoking,Poison,81,102,77,Picotazo Venenoso,51,Grito de Guerra,DebuffD,78
-35,Clefairy,Fairy,70,45,48,Brillo Mágico,55,Explosión Etérea,buffA,96
-36,Clefable,Fairy,95,70,73,Toque Dulce,54,Corte Dimensional,buffD,91
-37,Vulpix,Fire,38,41,40,Llamarada,51,Aura Salvaje,DebuffD,82
-38,Ninetales,Fire,73,76,75,Fuego Rápido,51,Tormenta Mística,debuffA,82
-39,Jigglypuff,Normal,115,45,20,Ataque Rápido,56,Corte Dimensional,buffA,73
-40,Wigglytuff,Normal,140,70,45,Ataque Rápido,46,Grito de Guerra,buffA,89
-41,Zubat,Poison,40,45,35,Mordisco Ácido,46,Explosión Etérea,buffD,98
-42,Golbat,Poison,75,80,70,Mordisco Ácido,51,Rugido Solar,buffD,73
-43,Oddish,Grass,45,50,55,Hoja Rápida,46,Aura Salvaje,buffA,98
-44,Gloom,Grass,60,65,70,Hoja Rápida,42,Explosión Etérea,DebuffD,90
-45,Vileplume,Grass,75,80,85,Hoja Rápida,42,Aura Salvaje,buffD,85
-46,Paras,Bug,35,70,55,Golpe Insecto,55,Explosión Etérea,debuffA,94
-47,Parasect,Bug,60,95,80,Ala Cuchilla,47,Corte Dimensional,debuffA,87
-48,Venonat,Bug,60,55,50,Golpe Insecto,40,Aura Salvaje,buffA,83
-49,Venomoth,Bug,70,65,60,Golpe Insecto,48,Corte Dimensional,DebuffD,90
-50,Diglett,Ground,10,55,25,Terremotito,40,Aura Salvaje,debuffA,97
-51,Dugtrio,Ground,35,80,50,Golpe Tierra,58,Aura Salvaje,DebuffD,75
-52,Meowth,Normal,40,45,35,Golpe Normal,55,Aura Salvaje,buffA,99
-53,Persian,Normal,65,70,60,Golpe Normal,52,Corte Dimensional,DebuffD,74
-54,Psyduck,Water,50,52,48,Salpicadura,54,Tormenta Mística,DebuffD,90
-55,Golduck,Water,80,82,78,Burbuja,52,Explosión Etérea,debuffA,99
-56,Mankey,Fighting,40,80,35,Golpe Directo,56,Aura Salvaje,debuffA,90
-57,Primeape,Fighting,65,105,60,Golpe Karate,58,Explosión Etérea,DebuffD,86
-58,Growlithe,Fire,55,70,45,Fuego Rápido,57,Corte Dimensional,buffD,78
-59,Arcanine,Fire,90,110,80,Ascuas,54,Explosión Etérea,buffA,83
-60,Poliwag,Water,40,50,40,Burbuja,46,Rugido Solar,buffA,91
-61,Poliwhirl,Water,65,65,65,Salpicadura,50,Tormenta Mística,buffD,81
-62,Poliwrath,Water,90,95,95,Salpicadura,52,Eco Final,debuffA,93
-63,Abra,Psychic,25,20,15,Confusión,55,Aura Salvaje,DebuffD,95
-64,Kadabra,Psychic,40,35,30,Confusión,56,Aura Salvaje,debuffA,96
-65,Alakazam,Psychic,55,50,45,Onda Psíquica,50,Explosión Etérea,debuffA,80
-65,AlakazamMega Alakazam,Psychic,55,50,65,Onda Psíquica,54,Tormenta Mística,buffA,78
-66,Machop,Fighting,70,80,50,Golpe Directo,49,Aura Salvaje,debuffA,83
-67,Machoke,Fighting,80,100,70,Golpe Karate,46,Rugido Solar,buffA,84
-68,Machamp,Fighting,90,130,80,Puño Rápido,41,Eco Final,buffA,93
-69,Bellsprout,Grass,50,75,35,Látigo Verde,43,Rugido Solar,buffD,87
-70,Weepinbell,Grass,65,90,50,Látigo Verde,46,Tormenta Mística,debuffA,78
-71,Victreebel,Grass,80,105,65,Hoja Rápida,60,Explosión Etérea,buffA,98
-72,Tentacool,Water,40,40,35,Chorro Aqua,44,Eco Final,debuffA,78
-73,Tentacruel,Water,80,70,65,Salpicadura,58,Corte Dimensional,DebuffD,96
-74,Geodude,Rock,40,80,100,Golpe Duro,56,Corte Dimensional,debuffA,82
-75,Graveler,Rock,55,95,115,Roca Filosa,55,Corte Dimensional,buffA,77
-76,Golem,Rock,80,120,130,Roca Filosa,46,Tormenta Mística,DebuffD,86
-77,Ponyta,Fire,50,85,55,Fuego Rápido,57,Aura Salvaje,DebuffD,93
-78,Rapidash,Fire,65,100,70,Llamarada,56,Tormenta Mística,DebuffD,99
-79,Slowpoke,Water,90,65,65,Salpicadura,47,Aura Salvaje,DebuffD,75
-80,Slowbro,Water,95,75,110,Burbuja,57,Rugido Solar,buffD,96
-80,SlowbroMega Slowbro,Water,95,75,180,Burbuja,53,Corte Dimensional,debuffA,72
-81,Magnemite,Electric,25,35,70,Chispa,58,Corte Dimensional,DebuffD,91
-82,Magneton,Electric,50,60,95,Impactrueno,41,Grito de Guerra,DebuffD,77
-83,Farfetch'd,Normal,52,65,55,Golpe Normal,44,Corte Dimensional,debuffA,70
-84,Doduo,Normal,35,85,45,Ataque Rápido,46,Aura Salvaje,buffD,98
-85,Dodrio,Normal,60,110,70,Placaje,47,Corte Dimensional,buffA,82
-86,Seel,Water,65,45,55,Salpicadura,51,Eco Final,buffA,93
-87,Dewgong,Water,90,70,80,Salpicadura,52,Aura Salvaje,buffD,93
-88,Grimer,Poison,80,80,50,Mordisco Ácido,53,Grito de Guerra,buffA,91
-89,Muk,Poison,105,105,75,Veneno Rápido,52,Eco Final,buffD,93
-90,Shellder,Water,30,65,100,Burbuja,60,Explosión Etérea,debuffA,77
-91,Cloyster,Water,50,95,180,Salpicadura,50,Corte Dimensional,DebuffD,70
-92,Gastly,Ghost,30,35,30,Toque Fantasma,50,Eco Final,buffA,74
-93,Haunter,Ghost,45,50,45,Sombra Rápida,59,Explosión Etérea,DebuffD,71
-94,Gengar,Ghost,60,65,60,Sombra Rápida,46,Grito de Guerra,debuffA,79
-94,GengarMega Gengar,Ghost,60,65,80,Sombra Rápida,53,Rugido Solar,DebuffD,84
-95,Onix,Rock,35,45,160,Golpe Duro,43,Eco Final,buffA,77
-96,Drowzee,Psychic,60,48,45,Onda Psíquica,52,Aura Salvaje,buffD,85
-97,Hypno,Psychic,85,73,70,Onda Psíquica,48,Rugido Solar,buffD,97
-98,Krabby,Water,30,105,90,Salpicadura,59,Tormenta Mística,debuffA,80
-99,Kingler,Water,55,130,115,Burbuja,53,Aura Salvaje,DebuffD,72
-100,Voltorb,Electric,40,30,50,Chispa,49,Tormenta Mística,debuffA,73
-101,Electrode,Electric,60,50,70,Chispa,44,Corte Dimensional,DebuffD,82
-102,Exeggcute,Grass,60,40,80,Hoja Rápida,45,Tormenta Mística,buffD,90
-103,Exeggutor,Grass,95,95,85,Golpehoja,55,Corte Dimensional,buffA,87
-104,Cubone,Ground,50,50,95,Golpe Tierra,59,Rugido Solar,buffD,92
-105,Marowak,Ground,60,80,110,Terremotito,47,Rugido Solar,DebuffD,99
-106,Hitmonlee,Fighting,50,120,53,Golpe Directo,59,Eco Final,debuffA,100
-107,Hitmonchan,Fighting,50,105,79,Golpe Directo,40,Aura Salvaje,buffA,78
-108,Lickitung,Normal,90,55,75,Golpe Normal,53,Explosión Etérea,DebuffD,96
-109,Koffing,Poison,40,65,95,Picotazo Venenoso,55,Explosión Etérea,DebuffD,100
-110,Weezing,Poison,65,90,120,Veneno Rápido,52,Corte Dimensional,DebuffD,93
-111,Rhyhorn,Ground,80,85,95,Terremotito,53,Rugido Solar,buffD,77
-112,Rhydon,Ground,105,130,120,Sacudida,60,Aura Salvaje,debuffA,82
-113,Chansey,Normal,250,5,5,Ataque Rápido,41,Rugido Solar,buffA,76
-114,Tangela,Grass,65,55,115,Látigo Verde,56,Explosión Etérea,DebuffD,91
-115,Kangaskhan,Normal,105,95,80,Placaje,43,Explosión Etérea,buffA,80
-115,KangaskhanMega Kangaskhan,Normal,105,125,100,Ataque Rápido,51,Rugido Solar,buffA,73
-116,Horsea,Water,30,40,70,Chorro Aqua,42,Aura Salvaje,buffA,98
-117,Seadra,Water,55,65,95,Chorro Aqua,58,Tormenta Mística,debuffA,78
-118,Goldeen,Water,45,67,60,Salpicadura,60,Tormenta Mística,DebuffD,83
-119,Seaking,Water,80,92,65,Salpicadura,51,Eco Final,buffD,79
-120,Staryu,Water,30,45,55,Chorro Aqua,41,Aura Salvaje,DebuffD,94
-121,Starmie,Water,60,75,85,Burbuja,45,Grito de Guerra,DebuffD,78
-122,Mr. Mime,Psychic,40,45,65,Confusión,50,Aura Salvaje,buffA,90
-123,Scyther,Bug,70,110,80,Picadura,46,Explosión Etérea,debuffA,70
-124,Jynx,Ice,65,50,35,Toque Helado,49,Grito de Guerra,DebuffD,87
-125,Electabuzz,Electric,65,83,57,Impactrueno,45,Eco Final,buffA,99
-126,Magmar,Fire,65,95,57,Llamarada,50,Corte Dimensional,DebuffD,70
-127,Pinsir,Bug,65,125,100,Picadura,55,Aura Salvaje,DebuffD,100
-127,PinsirMega Pinsir,Bug,65,155,120,Golpe Insecto,54,Aura Salvaje,DebuffD,98
-128,Tauros,Normal,75,100,95,Placaje,43,Grito de Guerra,buffA,71
-129,Magikarp,Water,20,10,55,Burbuja,59,Rugido Solar,buffA,86
-130,Gyarados,Water,95,125,79,Burbuja,49,Tormenta Mística,buffA,99
-130,GyaradosMega Gyarados,Water,95,155,109,Chorro Aqua,57,Tormenta Mística,debuffA,83
-131,Lapras,Water,130,85,80,Burbuja,42,Grito de Guerra,DebuffD,77
-132,Ditto,Normal,48,48,48,Golpe Normal,49,Eco Final,buffA,83
-133,Eevee,Normal,55,55,50,Placaje,49,Explosión Etérea,buffD,89
-134,Vaporeon,Water,130,65,60,Salpicadura,52,Corte Dimensional,debuffA,74
-135,Jolteon,Electric,65,65,60,Impactrueno,53,Corte Dimensional,DebuffD,96
-136,Flareon,Fire,65,130,60,Fuego Rápido,51,Rugido Solar,buffA,71
-137,Porygon,Normal,65,60,70,Ataque Rápido,58,Eco Final,buffA,82
-138,Omanyte,Rock,35,40,100,Roca Filosa,49,Grito de Guerra,buffA,72
-139,Omastar,Rock,70,60,125,Lanzarrocas,44,Eco Final,buffD,73
-140,Kabuto,Rock,30,80,90,Lanzarrocas,50,Corte Dimensional,buffD,95
-141,Kabutops,Rock,60,115,105,Roca Filosa,55,Tormenta Mística,buffA,85
-142,Aerodactyl,Rock,80,105,65,Golpe Duro,51,Explosión Etérea,debuffA,79
-142,AerodactylMega Aerodactyl,Rock,80,135,85,Lanzarrocas,41,Corte Dimensional,debuffA,90
-143,Snorlax,Normal,160,110,65,Placaje,57,Grito de Guerra,debuffA,77
-144,Articuno,Ice,90,85,100,Viento Hielo,58,Eco Final,buffA,79
-145,Zapdos,Electric,90,90,85,Impactrueno,45,Aura Salvaje,debuffA,76
-146,Moltres,Fire,90,100,90,Llamarada,58,Explosión Etérea,buffA,82
-147,Dratini,Dragon,41,64,45,Garra de Dragón,49,Corte Dimensional,buffD,78
-148,Dragonair,Dragon,61,84,65,Aliento Feroz,40,Explosión Etérea,DebuffD,78
-149,Dragonite,Dragon,91,134,95,Cola Dragón,47,Grito de Guerra,DebuffD,96
-150,Mewtwo,Psychic,106,110,90,Poder Mental,49,Corte Dimensional,buffA,79
+﻿ID,Name,Tipo,Ataque,Defensa,MovimA,EfectoA,MovimE,EfectoE,DaÃ±oE
+1,Bulbasaur,Grass,49,49,Golpehoja,50,Tormenta MÃ­stica,DebuffD,87
+2,Ivysaur,Grass,62,63,Golpehoja,49,ExplosiÃ³n EtÃ©rea,DebuffD,98
+3,Venusaur,Grass,82,83,LÃ¡tigo Verde,44,Rugido Solar,buffD,73
+4,Charmander,Fire,52,43,Ascuas,51,ExplosiÃ³n EtÃ©rea,DebuffD,95
+5,Charmeleon,Fire,64,58,Ascuas,54,Rugido Solar,buffD,78
+6,Charizard,Fire,84,78,Fuego RÃ¡pido,48,Tormenta MÃ­stica,debuffA,76
+7,Squirtle,Water,48,65,Chorro Aqua,48,Grito de Guerra,buffD,86
+8,Wartortle,Water,63,80,Salpicadura,45,Eco Final,debuffA,73
+9,BlastoiseMega Blastoise,Water,103,120,Burbuja,59,ExplosiÃ³n EtÃ©rea,debuffA,84
+10,Caterpie,Bug,30,35,Golpe Insecto,42,Aura Salvaje,debuffA,73
+11,Metapod,Bug,20,55,Ala Cuchilla,41,Aura Salvaje,buffD,99
+12,Butterfree,Bug,45,50,Golpe Insecto,51,Tormenta MÃ­stica,buffA,85
+13,Weedle,Bug,35,30,Picadura,47,Aura Salvaje,debuffA,70
+14,Kakuna,Bug,25,50,Picadura,60,Aura Salvaje,buffA,92
+15,Beedrill,Bug,90,40,Golpe Insecto,48,Corte Dimensional,debuffA,94
+16,Pidgey,Normal,45,40,Golpe Normal,50,Grito de Guerra,buffD,94
+17,Pidgeotto,Normal,60,55,Golpe Normal,60,ExplosiÃ³n EtÃ©rea,debuffA,72
+18,Pidgeot,Normal,80,75,Golpe Normal,48,Grito de Guerra,debuffA,85
+19,Rattata,Normal,56,35,Golpe Normal,50,Grito de Guerra,DebuffD,84
+20,Raticate,Normal,81,60,Ataque RÃ¡pido,48,Rugido Solar,DebuffD,85
+21,Spearow,Normal,60,30,Ataque RÃ¡pido,44,Eco Final,debuffA,85
+22,Fearow,Normal,90,65,Golpe Normal,57,Eco Final,buffA,92
+23,Ekans,Poison,60,44,Mordisco Ãcido,44,Rugido Solar,DebuffD,72
+24,Arbok,Poison,85,69,Veneno RÃ¡pido,48,Aura Salvaje,DebuffD,73
+25,Pikachu,Electric,55,40,Descarga,60,ExplosiÃ³n EtÃ©rea,DebuffD,98
+26,Raichu,Electric,90,55,Impactrueno,47,Grito de Guerra,buffD,72
+27,Sandshrew,Ground,75,85,Sacudida,50,Grito de Guerra,buffD,97
+28,Sandslash,Ground,100,110,Terremotito,52,Grito de Guerra,DebuffD,96
+29,Nidoranâ™€,Poison,47,52,Picotazo Venenoso,56,Corte Dimensional,debuffA,81
+30,Nidorina,Poison,62,67,Picotazo Venenoso,45,Corte Dimensional,buffD,75
+31,Nidoqueen,Poison,92,87,Picotazo Venenoso,51,Eco Final,debuffA,71
+32,Nidoranâ™‚,Poison,57,40,Veneno RÃ¡pido,50,Rugido Solar,debuffA,81
+33,Nidorino,Poison,72,57,Picotazo Venenoso,59,ExplosiÃ³n EtÃ©rea,buffA,97
+34,Nidoking,Poison,102,77,Picotazo Venenoso,51,Grito de Guerra,DebuffD,78
+35,Clefairy,Fairy,45,48,Brillo MÃ¡gico,55,ExplosiÃ³n EtÃ©rea,buffA,96
+36,Clefable,Fairy,70,73,Toque Dulce,54,Corte Dimensional,buffD,91
+37,Vulpix,Fire,41,40,Llamarada,51,Aura Salvaje,DebuffD,82
+38,Ninetales,Fire,76,75,Fuego RÃ¡pido,51,Tormenta MÃ­stica,debuffA,82
+39,Jigglypuff,Normal,45,20,Ataque RÃ¡pido,56,Corte Dimensional,buffA,73
+40,Wigglytuff,Normal,70,45,Ataque RÃ¡pido,46,Grito de Guerra,buffA,89
+41,Zubat,Poison,45,35,Mordisco Ãcido,46,ExplosiÃ³n EtÃ©rea,buffD,98
+42,Golbat,Poison,80,70,Mordisco Ãcido,51,Rugido Solar,buffD,73
+43,Oddish,Grass,50,55,Hoja RÃ¡pida,46,Aura Salvaje,buffA,98
+44,Gloom,Grass,65,70,Hoja RÃ¡pida,42,ExplosiÃ³n EtÃ©rea,DebuffD,90
+45,Vileplume,Grass,80,85,Hoja RÃ¡pida,42,Aura Salvaje,buffD,85
+46,Paras,Bug,70,55,Golpe Insecto,55,ExplosiÃ³n EtÃ©rea,debuffA,94
+47,Parasect,Bug,95,80,Ala Cuchilla,47,Corte Dimensional,debuffA,87
+48,Venonat,Bug,55,50,Golpe Insecto,40,Aura Salvaje,buffA,83
+49,Venomoth,Bug,65,60,Golpe Insecto,48,Corte Dimensional,DebuffD,90
+50,Diglett,Ground,55,25,Terremotito,40,Aura Salvaje,debuffA,97
+51,Dugtrio,Ground,80,50,Golpe Tierra,58,Aura Salvaje,DebuffD,75
+52,Meowth,Normal,45,35,Golpe Normal,55,Aura Salvaje,buffA,99
+53,Persian,Normal,70,60,Golpe Normal,52,Corte Dimensional,DebuffD,74
+54,Psyduck,Water,52,48,Salpicadura,54,Tormenta MÃ­stica,DebuffD,90
+55,Golduck,Water,82,78,Burbuja,52,ExplosiÃ³n EtÃ©rea,debuffA,99
+56,Mankey,Fighting,80,35,Golpe Directo,56,Aura Salvaje,debuffA,90
+57,Primeape,Fighting,105,60,Golpe Karate,58,ExplosiÃ³n EtÃ©rea,DebuffD,86
+58,Growlithe,Fire,70,45,Fuego RÃ¡pido,57,Corte Dimensional,buffD,78
+59,Arcanine,Fire,110,80,Ascuas,54,ExplosiÃ³n EtÃ©rea,buffA,83
+60,Poliwag,Water,50,40,Burbuja,46,Rugido Solar,buffA,91
+61,Poliwhirl,Water,65,65,Salpicadura,50,Tormenta MÃ­stica,buffD,81
+62,Poliwrath,Water,95,95,Salpicadura,52,Eco Final,debuffA,93
+63,Abra,Psychic,20,15,ConfusiÃ³n,55,Aura Salvaje,DebuffD,95
+64,Kadabra,Psychic,35,30,ConfusiÃ³n,56,Aura Salvaje,debuffA,96
+65,AlakazamMega Alakazam,Psychic,50,65,Onda PsÃ­quica,54,Tormenta MÃ­stica,buffA,78
+66,Machop,Fighting,80,50,Golpe Directo,49,Aura Salvaje,debuffA,83
+67,Machoke,Fighting,100,70,Golpe Karate,46,Rugido Solar,buffA,84
+68,Machamp,Fighting,130,80,PuÃ±o RÃ¡pido,41,Eco Final,buffA,93
+69,Bellsprout,Grass,75,35,LÃ¡tigo Verde,43,Rugido Solar,buffD,87
+70,Weepinbell,Grass,90,50,LÃ¡tigo Verde,46,Tormenta MÃ­stica,debuffA,78
+71,Victreebel,Grass,105,65,Hoja RÃ¡pida,60,ExplosiÃ³n EtÃ©rea,buffA,98
+72,Tentacool,Water,40,35,Chorro Aqua,44,Eco Final,debuffA,78
+73,Tentacruel,Water,70,65,Salpicadura,58,Corte Dimensional,DebuffD,96
+74,Geodude,Rock,80,100,Golpe Duro,56,Corte Dimensional,debuffA,82
+75,Graveler,Rock,95,115,Roca Filosa,55,Corte Dimensional,buffA,77
+76,Golem,Rock,120,130,Roca Filosa,46,Tormenta MÃ­stica,DebuffD,86
+77,Ponyta,Fire,85,55,Fuego RÃ¡pido,57,Aura Salvaje,DebuffD,93
+78,Rapidash,Fire,100,70,Llamarada,56,Tormenta MÃ­stica,DebuffD,99
+79,Slowpoke,Water,65,65,Salpicadura,47,Aura Salvaje,DebuffD,75
+80,Slowbro,Water,75,110,Burbuja,57,Rugido Solar,buffD,96
+81,Magnemite,Electric,35,70,Chispa,58,Corte Dimensional,DebuffD,91
+82,Magneton,Electric,60,95,Impactrueno,41,Grito de Guerra,DebuffD,77
+83,Farfetch'd,Normal,65,55,Golpe Normal,44,Corte Dimensional,debuffA,70
+84,Doduo,Normal,85,45,Ataque RÃ¡pido,46,Aura Salvaje,buffD,98
+85,Dodrio,Normal,110,70,Placaje,47,Corte Dimensional,buffA,82
+86,Seel,Water,45,55,Salpicadura,51,Eco Final,buffA,93
+87,Dewgong,Water,70,80,Salpicadura,52,Aura Salvaje,buffD,93
+88,Grimer,Poison,80,50,Mordisco Ãcido,53,Grito de Guerra,buffA,91
+89,Muk,Poison,105,75,Veneno RÃ¡pido,52,Eco Final,buffD,93
+90,Shellder,Water,65,100,Burbuja,60,ExplosiÃ³n EtÃ©rea,debuffA,77
+91,Cloyster,Water,95,180,Salpicadura,50,Corte Dimensional,DebuffD,70
+92,Gastly,Ghost,35,30,Toque Fantasma,50,Eco Final,buffA,74
+93,Haunter,Ghost,50,45,Sombra RÃ¡pida,59,ExplosiÃ³n EtÃ©rea,DebuffD,71
+94,GengarMega Gengar,Ghost,65,80,Sombra RÃ¡pida,53,Rugido Solar,DebuffD,84
+95,Onix,Rock,45,160,Golpe Duro,43,Eco Final,buffA,77
+96,Drowzee,Psychic,48,45,Onda PsÃ­quica,52,Aura Salvaje,buffD,85
+97,Hypno,Psychic,73,70,Onda PsÃ­quica,48,Rugido Solar,buffD,97
+98,Krabby,Water,105,90,Salpicadura,59,Tormenta MÃ­stica,debuffA,80
+99,Kingler,Water,130,115,Burbuja,53,Aura Salvaje,DebuffD,72
+100,Voltorb,Electric,30,50,Chispa,49,Tormenta MÃ­stica,debuffA,73
+101,Electrode,Electric,50,70,Chispa,44,Corte Dimensional,DebuffD,82
+102,Exeggcute,Grass,40,80,Hoja RÃ¡pida,45,Tormenta MÃ­stica,buffD,90
+103,Exeggutor,Grass,95,85,Golpehoja,55,Corte Dimensional,buffA,87
+104,Cubone,Ground,50,95,Golpe Tierra,59,Rugido Solar,buffD,92
+105,Marowak,Ground,80,110,Terremotito,47,Rugido Solar,DebuffD,99
+106,Hitmonlee,Fighting,120,53,Golpe Directo,59,Eco Final,debuffA,100
+107,Hitmonchan,Fighting,105,79,Golpe Directo,40,Aura Salvaje,buffA,78
+108,Lickitung,Normal,55,75,Golpe Normal,53,ExplosiÃ³n EtÃ©rea,DebuffD,96
+109,Koffing,Poison,65,95,Picotazo Venenoso,55,ExplosiÃ³n EtÃ©rea,DebuffD,100
+110,Weezing,Poison,90,120,Veneno RÃ¡pido,52,Corte Dimensional,DebuffD,93
+111,Rhyhorn,Ground,85,95,Terremotito,53,Rugido Solar,buffD,77
+112,Rhydon,Ground,130,120,Sacudida,60,Aura Salvaje,debuffA,82
+113,Chansey,Normal,5,5,Ataque RÃ¡pido,41,Rugido Solar,buffA,76
+114,Tangela,Grass,55,115,LÃ¡tigo Verde,56,ExplosiÃ³n EtÃ©rea,DebuffD,91
+115,KangaskhanMega Kangaskhan,Normal,125,100,Ataque RÃ¡pido,51,Rugido Solar,buffA,73
+116,Horsea,Water,40,70,Chorro Aqua,42,Aura Salvaje,buffA,98
+117,Seadra,Water,65,95,Chorro Aqua,58,Tormenta MÃ­stica,debuffA,78
+118,Goldeen,Water,67,60,Salpicadura,60,Tormenta MÃ­stica,DebuffD,83
+119,Seaking,Water,92,65,Salpicadura,51,Eco Final,buffD,79
+120,Staryu,Water,45,55,Chorro Aqua,41,Aura Salvaje,DebuffD,94
+121,Starmie,Water,75,85,Burbuja,45,Grito de Guerra,DebuffD,78
+122,Mr. Mime,Psychic,45,65,ConfusiÃ³n,50,Aura Salvaje,buffA,90
+123,Scyther,Bug,110,80,Picadura,46,ExplosiÃ³n EtÃ©rea,debuffA,70
+124,Jynx,Ice,50,35,Toque Helado,49,Grito de Guerra,DebuffD,87
+125,Electabuzz,Electric,83,57,Impactrueno,45,Eco Final,buffA,99
+126,Magmar,Fire,95,57,Llamarada,50,Corte Dimensional,DebuffD,70
+127,Pinsir,Bug,125,100,Picadura,55,Aura Salvaje,DebuffD,100
+128,Tauros,Normal,100,95,Placaje,43,Grito de Guerra,buffA,71
+129,Magikarp,Water,10,55,Burbuja,59,Rugido Solar,buffA,86
+130,Gyarados,Water,125,79,Burbuja,49,Tormenta MÃ­stica,buffA,99
+131,Lapras,Water,85,80,Burbuja,42,Grito de Guerra,DebuffD,77
+132,Ditto,Normal,48,48,Golpe Normal,49,Eco Final,buffA,83
+133,Eevee,Normal,55,50,Placaje,49,ExplosiÃ³n EtÃ©rea,buffD,89
+134,Vaporeon,Water,65,60,Salpicadura,52,Corte Dimensional,debuffA,74
+135,Jolteon,Electric,65,60,Impactrueno,53,Corte Dimensional,DebuffD,96
+136,Flareon,Fire,130,60,Fuego RÃ¡pido,51,Rugido Solar,buffA,71
+137,Porygon,Normal,60,70,Ataque RÃ¡pido,58,Eco Final,buffA,82
+138,Omanyte,Rock,40,100,Roca Filosa,49,Grito de Guerra,buffA,72
+139,Omastar,Rock,60,125,Lanzarrocas,44,Eco Final,buffD,73
+140,Kabuto,Rock,80,90,Lanzarrocas,50,Corte Dimensional,buffD,95
+141,Kabutops,Rock,115,105,Roca Filosa,55,Tormenta MÃ­stica,buffA,85
+142,Aerodactyl,Rock,105,65,Golpe Duro,51,ExplosiÃ³n EtÃ©rea,debuffA,79
+143,Snorlax,Normal,110,65,Placaje,57,Grito de Guerra,debuffA,77
+144,Articuno,Ice,85,100,Viento Hielo,58,Eco Final,buffA,79
+145,Zapdos,Electric,90,85,Impactrueno,45,Aura Salvaje,debuffA,76
+146,Moltres,Fire,100,90,Llamarada,58,ExplosiÃ³n EtÃ©rea,buffA,82
+147,Dratini,Dragon,64,45,Garra de DragÃ³n,49,Corte Dimensional,buffD,78
+148,Dragonair,Dragon,84,65,Aliento Feroz,40,ExplosiÃ³n EtÃ©rea,DebuffD,78
+149,Dragonite,Dragon,134,95,Cola DragÃ³n,47,Grito de Guerra,DebuffD,96
+150,Mewtwo,Psychic,110,90,Poder Mental,49,Corte Dimensional,buffA,79

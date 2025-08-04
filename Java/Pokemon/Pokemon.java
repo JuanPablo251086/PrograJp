@@ -1,42 +1,63 @@
 public class Pokemon
-{
-    private String nombre = null;
-    private String tipo = null;
-    private double ataque = 0;
-    private double defensa = 0;
-    private Movimiento movimA = new Movimiento(a);
-    private Movimiento movimE = new Movimiento(e);
+{   
 
-    public void Pokemon(String nom, String typ, double atk, double def, Movimiento ma, Movimiento me)
+    private int id;
+    private String nombre;
+    private String tipo;
+    private double ataque;
+    private double defensa;
+    private String movimientoAtaque;
+    private String movimientoEspecial;
+    private double efectoAtaque;
+    private String efectoEspecial;
+    private double danioEspecial;
+
+    public Pokemon(int ide, String nom, String typ, double atk, double def, String moviAt, double eA, String moviEs, String eE, double danioE)
     {
+        this.id = ide;
         this.nombre = nom;
-        this.nombre = typ;
+        this.tipo = typ;
         this.ataque = atk;
         this.defensa = def;
-        this.movimA = ma;
+        this.movimientoAtaque = moviAt;
+        this.movimientoEspecial = moviEs;
+        this.efectoAtaque = eA;
+        this.efectoEspecial = eE;
+        this.danioEspecial = danioE;
     }
 
-
-    public void setAtaque(int valor)
+    public String toString()
+    {
+        return(this.nombre + this.tipo);
+    }
+    public void setAtaque(double valor)
     {
         this.ataque = valor;
     }
 
-    public void setDefensa(int valor)
+    public void setDefensa(double valor)
     {
-        this.ataque = valor;
+        this.defensa = valor;
     }
-    public int getAtaque()
+    public double getAtaque()
    {
         return (this.ataque);
    }
 
-   public int getDefensa()
+   public double getDefensa()
    {
         return (this.defensa);
    }
-    public Srting getTipo()
+    public String getTipo()
     {
         return (this.tipo);
+    }
+    public String getEfectoE()
+    {
+        return (this.efectoEspecial);
+    }
+    public double getAtaqueEspecial()
+    {
+        return(this.danioEspecial);
     }
 }
