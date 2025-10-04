@@ -1,0 +1,35 @@
+USER MANUAL
+StatModel.calculate
+Numero de parametros: Al menos 2
+Representacion: Lista de valores numericos (datos de entrada para estadisticas)
+Salida: Lista con 3 valores: promedio, desviacion estandar, coeficiente de variacion
+
+ProbModel.calculate
+Numero de parametros: 2
+Representacion: Param1: casos favorables (>=0 y <= total); Param2: casos totales (>0)
+Salida: Probabilidad (favorable / total)
+
+GeometryModel.calculate
+Numero de parametros: Dependiendo de shapeType; rectangle: 2; circle: 1; triangle: 2
+Representacion: Para rectangle: Param1: largo (>0); Param2: ancho (>0)
+Salida: Area de la figura
+
+LinalgebraModel.calculate
+Numero de parametros: 4
+Representacion: Elementos de matriz 2x2 : Param1: [0][0]; Param2: [0][1]; Param3: [1][0]; Param4: [1][1]
+Salida: Lista con 2 valores propios (eigenvalores)
+
+LinearModel.calculate
+Numero de parametros: Al menos 1 
+Representacion: Valores de x para evaluar y = m*x + b (Estos se personalizan al instanciar en Main)
+Salida: Lista de valores y para cada x
+
+ExponentialModel.calculate
+Numero de parametros: Al menos 1
+Representacion: Valores de x para evaluar y = a * exp(b * x) (Estos se personalizan al instanciar en Main)
+Salida: Lista de valores y para cada x
+
+PolynomialModel.calculate
+Numero de parametros: Al menos 1
+Representacion: Valores de x para evaluar polinomio (Estos se personalizan al instanciar en Main)
+Salida: Lista de valores y para cada x
