@@ -9,7 +9,7 @@ public class Equipo implements Comparable<Equipo>
     private float consumo;
     private int id;
     ArrayList<Float> readings;
-    //tuve que hacer un workarround aqui con este atributo para poder establecer varios parametros de comparacion 
+    //tuve que hacer un workaround aqui con este atributo para poder establecer varios parametros de comparacion 
     public boolean ordenMayor;
 
 

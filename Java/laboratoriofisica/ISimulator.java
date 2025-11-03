@@ -1,6 +1,6 @@
 public interface ISimulator
 {
-    void searchUpdate();
-    void start();
-    void stop();
+    public void searchUpdate();
+    public void start();
+    public void stop();
 }
