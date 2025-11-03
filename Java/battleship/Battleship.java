@@ -24,5 +24,10 @@ public class Battleship {
         this.vista.mostrarBienvenida();
 
         this.tablero.colocarBarcosAleatorios(this.n, )
+        while()
+        {
+            this.vista.dibujarTablero()
+            String entrada = this.vista.perdirEntrada("Comando ")
+        }
     }
 }
