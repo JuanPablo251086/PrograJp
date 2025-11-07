@@ -2,10 +2,10 @@ import java.util.ArrayList;
 //Ya no la hice abstract porque así puedo usar polimorfismo más fácilmente
 public class Equipo implements Comparable<Equipo>
 {
-    private String nombre, tipo, caracteristicas, fabricante;
+    protected String nombre, tipo, caracteristicas, fabricante;
     //quite status, esta responsabilidad se la voy a implentar individualmente acorde al caso
-    private float consumo;
-    private int id;
+    protected float consumo;
+    protected int id;
     ArrayList<Float> readings;
     //tuve que hacer un workaround aqui con este atributo para poder establecer varios parametros de comparacion
     public boolean ordenMayor;
