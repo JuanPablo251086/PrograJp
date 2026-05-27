@@ -1,0 +1,240 @@
+"""
+boatfin.py  –  Autodesk Fusion 360 Python Script
+==================================================
+Creates two 3-D-printable bodies inside the active component:
+
+  Fin_Base_Plate  – flat disk glued to the hull; has a centre post and
+                    8 detent bumps for indexed rotation every 45 °
+  Fin_Assembly    – collar + fin that slides onto the post and clicks
+                    into any of the 8 detent positions
+
+All dimensions are in centimetres (Fusion 360 internal unit).
+
+How to run
+----------
+1. Open Autodesk Fusion 360 with a new empty design.
+2. Tools ▸ Scripts and Add-ins (Shift+S) ▸ Scripts tab ▸ + (Add) ▸ select this file.
+3. Click Run.
+
+The two bodies appear side-by-side (30 mm apart) for easy inspection.
+Right-click each body → Save As Mesh (STL) to export for printing.
+
+Print notes
+-----------
+• Recommended layer height: 0.15–0.2 mm.
+• Print both pieces flat-side-down (no support needed).
+• If the hole binds on the post, increase HOLE_R by 0.01 cm and re-run.
+• After gluing the Base Plate to the hull, press the Fin Assembly down
+  over the post and rotate to the desired angle until it clicks.
+"""
+
+import adsk.core
+import adsk.fusion
+import traceback
+import math
+
+# ── Dimensions (centimetres) ──────────────────────────────────────────────────
+# Base plate
+BASE_R   = 1.10   # radius            → 22 mm diameter
+BASE_H   = 0.30   # thickness         →  3 mm
+
+# Centre post (on top of base plate)
+POST_R   = 0.20   # radius            →  4 mm diameter
+POST_H   = 0.15   # height above base →  1.5 mm  (sits inside blind hole with 0.5 mm clearance below ceiling)
+
+# Detent bumps on base top face  (8 × 45 °)
+BUMP_RNG = 0.80   # ring radius       →  8 mm from centre
+BUMP_R   = 0.08   # bump radius       →  1.6 mm diameter
+BUMP_H   = 0.08   # bump height       →  0.8 mm  (sits fully inside recess)
+N_BUMPS  = 8
+
+# Collar (rotating piece)
+COLLAR_R = 1.10   # radius            → 22 mm diameter
+COLLAR_H = 0.25   # thickness         →  2.5 mm
+HOLE_R   = 0.25   # blind-hole radius →  5.0 mm  (1 mm diametric clearance on 4 mm post — FDM-safe sliding fit)
+HOLE_D   = 0.20   # blind-hole depth  →  2.0 mm  (leaves 0.5 mm solid ceiling at the top — no gap around fin)
+
+# Detent recesses on collar bottom
+RECESS_R = 0.11   # recess radius     →  2.2 mm diameter  (0.3 mm radial clearance vs bump — FDM-safe)
+RECESS_D = 0.09   # recess depth      →  0.9 mm  (0.1 mm deeper than bump → collar seats flat)
+
+# Fin body
+FIN_H    = 2.50   # fin height        → 25 mm
+FIN_CA   = 1.40   # chord at base     → 14 mm
+FIN_TA   = 0.45   # thickness at base →  4.5 mm
+FIN_CT   = 0.50   # chord at tip      →  5 mm
+FIN_TT   = 0.15   # thickness at tip  →  1.5 mm
+
+# Side-by-side layout: fin assembly is offset this far in X from the base plate
+LAYOUT_X = 3.00   # 30 mm separation between the two bodies
+# ─────────────────────────────────────────────────────────────────────────────
+
+
+def run(context):
+    ui = None
+    try:
+        app  = adsk.core.Application.get()
+        ui   = app.userInterface
+        des  = adsk.fusion.Design.cast(app.activeProduct)
+        root = des.rootComponent
+
+        # Both bodies live inside the root component (Part Design compatible).
+        # The fin assembly is offset LAYOUT_X cm in X so they don't overlap.
+        _make_base_plate(root,   cx=0.0,      cy=0.0)
+        _make_fin_assembly(root, cx=LAYOUT_X, cy=0.0)
+
+        ui.messageBox(
+            'Boat fin created!\n\n'
+            'Two bodies in this design:\n'
+            '  Fin_Base_Plate  (left)  – glue flat bottom to hull\n'
+            '  Fin_Assembly    (right) – slides onto post, rotates to set angle\n\n'
+            '8 detent positions every 45 °.\n'
+            'Total fin protrusion from hull ≈ 30 mm.\n\n'
+            'Right-click each body → Save As Mesh (STL) to export.\n'
+            'If hole is too tight/loose, adjust HOLE_R ± 0.01 cm and re-run.'
+        )
+
+    except:
+        if ui:
+            ui.messageBox('Script failed:\n{}'.format(traceback.format_exc()))
+
+
+# ── helpers ───────────────────────────────────────────────────────────────────
+
+def _pt(x, y, z=0):
+    return adsk.core.Point3D.create(x, y, z)
+
+
+def _offset_plane(comp, ref_plane, z_cm):
+    planes = comp.constructionPlanes
+    pi     = planes.createInput()
+    pi.setByOffset(ref_plane, adsk.core.ValueInput.createByReal(z_cm))
+    return planes.add(pi)
+
+
+def _extrude_op(comp, profile_or_coll, height_cm, op):
+    exts = comp.features.extrudeFeatures
+    ei   = exts.createInput(profile_or_coll, op)
+    ei.setDistanceExtent(False, adsk.core.ValueInput.createByReal(height_cm))
+    return exts.add(ei)
+
+
+def _new_body(comp, profile, height_cm):
+    return _extrude_op(comp, profile, height_cm,
+                       adsk.fusion.FeatureOperations.NewBodyFeatureOperation)
+
+
+def _join(comp, profile, height_cm):
+    return _extrude_op(comp, profile, height_cm,
+                       adsk.fusion.FeatureOperations.JoinFeatureOperation)
+
+
+def _cut(comp, profile, depth_cm):
+    return _extrude_op(comp, profile, depth_cm,
+                       adsk.fusion.FeatureOperations.CutFeatureOperation)
+
+
+def _ring_sketch(comp, plane, cx, cy, ring_r, circle_r, n):
+    """n circles arranged in a ring of radius ring_r, centred at (cx, cy)."""
+    sk = comp.sketches.add(plane)
+    for i in range(n):
+        a = 2.0 * math.pi * i / n
+        sk.sketchCurves.sketchCircles.addByCenterRadius(
+            _pt(cx + ring_r * math.cos(a),
+                cy + ring_r * math.sin(a)), circle_r)
+    return sk
+
+
+def _all_profiles(sketch):
+    coll = adsk.core.ObjectCollection.create()
+    for i in range(sketch.profiles.count):
+        coll.add(sketch.profiles.item(i))
+    return coll
+
+
+def _annular_profile(sketch):
+    """Annular (donut) profile = the profile whose loop count is 2."""
+    for i in range(sketch.profiles.count):
+        p = sketch.profiles.item(i)
+        if p.profileLoops.count == 2:
+            return p
+    return sketch.profiles.item(0)   # fallback
+
+
+# ── body builders ─────────────────────────────────────────────────────────────
+
+def _make_base_plate(comp, cx, cy):
+    """
+    Fin_Base_Plate
+    ──────────────
+    Flat disk (22 mm dia × 3 mm) with a 4 mm centre post and
+    8 detent bumps at 8 mm ring radius spaced 45 °.
+    """
+    xy = comp.xYConstructionPlane
+
+    # flat disk → new body
+    sk = comp.sketches.add(xy)
+    sk.sketchCurves.sketchCircles.addByCenterRadius(_pt(cx, cy), BASE_R)
+    ext = _new_body(comp, sk.profiles.item(0), BASE_H)
+    ext.bodies.item(0).name = 'Fin_Base_Plate'
+
+    # centre post joined on top
+    top = _offset_plane(comp, xy, BASE_H)
+    sk2 = comp.sketches.add(top)
+    sk2.sketchCurves.sketchCircles.addByCenterRadius(_pt(cx, cy), POST_R)
+    _join(comp, sk2.profiles.item(0), POST_H)
+
+    # detent bumps joined on top
+    sk3 = _ring_sketch(comp, top, cx, cy, BUMP_RNG, BUMP_R, N_BUMPS)
+    _join(comp, _all_profiles(sk3), BUMP_H)
+
+
+def _make_fin_assembly(comp, cx, cy):
+    """
+    Fin_Assembly
+    ────────────
+    Collar (22 mm dia, 4.4 mm hole) with 8 detent recesses on the bottom,
+    lofted fin: 14 × 4.5 mm ellipse at collar top → 5 × 1.5 mm at tip (25 mm tall).
+    Centred at (cx, cy) so it sits beside Fin_Base_Plate in the viewport.
+    """
+    xy = comp.xYConstructionPlane
+
+    # collar as a solid disk → new body
+    sk = comp.sketches.add(xy)
+    sk.sketchCurves.sketchCircles.addByCenterRadius(_pt(cx, cy), COLLAR_R)
+    ext = _new_body(comp, sk.profiles.item(0), COLLAR_H)
+    ext.bodies.item(0).name = 'Fin_Assembly'
+
+    # blind centre hole cut from the bottom — stops short of the top face
+    # so the collar's top remains a fully closed surface under the fin
+    sk_hole = comp.sketches.add(xy)
+    sk_hole.sketchCurves.sketchCircles.addByCenterRadius(_pt(cx, cy), HOLE_R)
+    _cut(comp, sk_hole.profiles.item(0), HOLE_D)
+
+    # detent recesses cut from collar bottom (z=0 upward into collar)
+    sk_r = _ring_sketch(comp, xy, cx, cy, BUMP_RNG, RECESS_R, N_BUMPS)
+    _cut(comp, _all_profiles(sk_r), RECESS_D)
+
+    # fin loft: base ellipse at collar top → tip ellipse 25 mm above
+    fin_base = _offset_plane(comp, xy, COLLAR_H)
+    fin_tip  = _offset_plane(comp, xy, COLLAR_H + FIN_H)
+
+    sk_b = comp.sketches.add(fin_base)
+    sk_b.sketchCurves.sketchEllipses.add(
+        _pt(cx, cy),                     # centre
+        _pt(cx + FIN_CA / 2, cy),        # end of major axis (chord direction = X)
+        _pt(cx, cy + FIN_TA / 2)         # any point on ellipse (here: end of minor axis)
+    )
+
+    sk_t = comp.sketches.add(fin_tip)
+    sk_t.sketchCurves.sketchEllipses.add(
+        _pt(cx, cy),
+        _pt(cx + FIN_CT / 2, cy),
+        _pt(cx, cy + FIN_TT / 2)
+    )
+
+    lofts = comp.features.loftFeatures
+    li    = lofts.createInput(adsk.fusion.FeatureOperations.JoinFeatureOperation)
+    li.loftSections.add(sk_b.profiles.item(0))
+    li.loftSections.add(sk_t.profiles.item(0))
+    lofts.add(li)
