@@ -24,12 +24,19 @@ makes sense for the build.
 | File | Attachment | Base piece | Top piece | When to use |
 |---|---|---|---|---|
 | [boatfin.py](boatfin.py) | 8 × M2.5 screws | Ø26 × 4 mm plate, post + pilot holes | Collar w/ blind hole + clearance holes + fin | Permanent install, locked rotation after install, max strength |
-| [boatfin_velcro.py](boatfin_velcro.py) | Hook-and-loop pad | Plain Ø22 × 3 mm disk | Plain Ø22 × 3 mm disk + fin | Re-orientable on the fly, no hardware, simplest print |
+| [boatfin_velcro.py](boatfin%20velcro/boatfin_velcro.py) | Hook-and-loop pad | Plain Ø22 × 3 mm disk | Plain Ø22 × 3 mm disk + fin | Re-orientable on the fly, no hardware, simplest print |
 
 The rest of this document describes the **screwed variant** in depth (it has
 all the design history, tolerance tuning, and FDM gotchas). The velcro variant
 is simple enough that its own file docstring is the complete spec — there's no
 post, no hole, no fasteners, no detents.
+
+> **Folder layout note.** Fusion 360 expects each script to live in its own
+> folder when added via Scripts and Add-ins. So `boatfin_velcro.py` was moved
+> into a sibling `boatfin velcro/` subfolder, while `boatfin.py` stays at the
+> root of this `boatfin/` folder (the root folder itself acts as the script
+> folder for `boatfin.py`). All file paths in this doc are relative to this
+> root folder.
 
 ### Velcro variant — at a glance
 
