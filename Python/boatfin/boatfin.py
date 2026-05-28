@@ -4,9 +4,9 @@ boatfin.py  –  Autodesk Fusion 360 Python Script
 Creates two 3-D-printable bodies inside the active component:
 
   Fin_Base_Plate  – flat disk glued to the hull; has a centre post and
-                    8 detent bumps for indexed rotation every 45 °
-  Fin_Assembly    – collar + fin that slides onto the post and clicks
-                    into any of the 8 detent positions
+                    8 tap-drilled screw holes around the rim
+  Fin_Assembly    – collar + fin; drops onto the post and is fastened
+                    down with 8 screws through matching clearance holes
 
 All dimensions are in centimetres (Fusion 360 internal unit).
 
@@ -19,13 +19,21 @@ How to run
 The two bodies appear side-by-side (30 mm apart) for easy inspection.
 Right-click each body → Save As Mesh (STL) to export for printing.
 
+Assembly
+--------
+1. Glue Fin_Base_Plate flat-side-down to the hull.
+2. Drop Fin_Assembly onto the centre post — post centres the collar.
+3. Rotate to the desired heading (any 45° increment — 8 positions line up).
+4. Drive 8 × M2.5 × 8 mm self-tapping screws down through the collar's
+   clearance holes into the base plate's pilot holes.
+
 Print notes
 -----------
 • Recommended layer height: 0.15–0.2 mm.
 • Print both pieces flat-side-down (no support needed).
-• If the hole binds on the post, increase HOLE_R by 0.01 cm and re-run.
-• After gluing the Base Plate to the hull, press the Fin Assembly down
-  over the post and rotate to the desired angle until it clicks.
+• If the collar binds on the post, increase HOLE_R by 0.01 cm and re-run.
+• Tap holes are sized for an M2.5 self-tapping screw cutting fresh threads
+  in PLA. If you prefer cut threads, run an M2.5 tap through them first.
 """
 
 import adsk.core
@@ -35,28 +43,24 @@ import math
 
 # ── Dimensions (centimetres) ──────────────────────────────────────────────────
 # Base plate
-BASE_R   = 1.10   # radius            → 22 mm diameter
-BASE_H   = 0.30   # thickness         →  3 mm
+BASE_R   = 1.30   # radius            → 26 mm diameter  (hosts screw holes at 10 mm ring with FDM-safe walls)
+BASE_H   = 0.40   # thickness         →  4 mm  (≈2 D thread engagement for M2.5 self-tapping into PLA)
 
-# Centre post (on top of base plate)
+# Centre post (on top of base plate) — alignment aid, not load-bearing
 POST_R   = 0.20   # radius            →  4 mm diameter
 POST_H   = 0.15   # height above base →  1.5 mm  (sits inside blind hole with 0.5 mm clearance below ceiling)
 
-# Detent bumps on base top face  (8 × 45 °)
-BUMP_RNG = 0.80   # ring radius       →  8 mm from centre
-BUMP_R   = 0.08   # bump radius       →  1.6 mm diameter
-BUMP_H   = 0.08   # bump height       →  0.8 mm  (sits fully inside recess)
-N_BUMPS  = 8
+# Screw holes  (8 × 45 ° around a common ring)
+SCREW_RNG    = 1.00   # ring radius        → 10 mm from centre  (clears 14 mm fin chord; sits inside 26 mm plate with 1.6 mm wall)
+SCREW_TAP_R  = 0.10   # tap-hole radius    →  2.0 mm diameter   (pilot for M2.5 self-tap into PLA — base plate)
+SCREW_CLR_R  = 0.125  # clearance radius   →  2.5 mm diameter   (line-to-line on M2.5 shank — collar)
+N_SCREWS     = 8
 
-# Collar (rotating piece)
-COLLAR_R = 1.10   # radius            → 22 mm diameter
+# Collar (top piece)
+COLLAR_R = 1.30   # radius            → 26 mm diameter  (matches base — holes must line up)
 COLLAR_H = 0.25   # thickness         →  2.5 mm
 HOLE_R   = 0.25   # blind-hole radius →  5.0 mm  (1 mm diametric clearance on 4 mm post — FDM-safe sliding fit)
 HOLE_D   = 0.20   # blind-hole depth  →  2.0 mm  (leaves 0.5 mm solid ceiling at the top — no gap around fin)
-
-# Detent recesses on collar bottom
-RECESS_R = 0.11   # recess radius     →  2.2 mm diameter  (0.3 mm radial clearance vs bump — FDM-safe)
-RECESS_D = 0.09   # recess depth      →  0.9 mm  (0.1 mm deeper than bump → collar seats flat)
 
 # Fin body
 FIN_H    = 2.50   # fin height        → 25 mm
@@ -86,12 +90,14 @@ def run(context):
         ui.messageBox(
             'Boat fin created!\n\n'
             'Two bodies in this design:\n'
-            '  Fin_Base_Plate  (left)  – glue flat bottom to hull\n'
-            '  Fin_Assembly    (right) – slides onto post, rotates to set angle\n\n'
-            '8 detent positions every 45 °.\n'
+            '  Fin_Base_Plate  (left)  – glue flat bottom to hull, then\n'
+            '                            screw the assembly down through it\n'
+            '  Fin_Assembly    (right) – drops onto post, fastens with 8 × M2.5 screws\n\n'
+            '8 screw positions every 45 ° — pick any rotation at install.\n'
             'Total fin protrusion from hull ≈ 30 mm.\n\n'
             'Right-click each body → Save As Mesh (STL) to export.\n'
-            'If hole is too tight/loose, adjust HOLE_R ± 0.01 cm and re-run.'
+            'Recommended fasteners: 8 × M2.5 × 8 mm self-tapping screws.\n'
+            'If the collar binds on the post, adjust HOLE_R ± 0.01 cm and re-run.'
         )
 
     except:
@@ -167,8 +173,10 @@ def _make_base_plate(comp, cx, cy):
     """
     Fin_Base_Plate
     ──────────────
-    Flat disk (22 mm dia × 3 mm) with a 4 mm centre post and
-    8 detent bumps at 8 mm ring radius spaced 45 °.
+    Flat disk (26 mm dia × 4 mm) with a 4 mm centre post and
+    8 Ø2 mm pilot holes at 10 mm ring radius spaced 45 °.
+    M2.5 self-tapping screws cut their own threads in the PLA when driven
+    from above through the fin assembly's clearance holes.
     """
     xy = comp.xYConstructionPlane
 
@@ -184,17 +192,18 @@ def _make_base_plate(comp, cx, cy):
     sk2.sketchCurves.sketchCircles.addByCenterRadius(_pt(cx, cy), POST_R)
     _join(comp, sk2.profiles.item(0), POST_H)
 
-    # detent bumps joined on top
-    sk3 = _ring_sketch(comp, top, cx, cy, BUMP_RNG, BUMP_R, N_BUMPS)
-    _join(comp, _all_profiles(sk3), BUMP_H)
+    # Ø2 mm pilot holes for M2.5 self-tap, cut all the way through the base
+    sk3 = _ring_sketch(comp, xy, cx, cy, SCREW_RNG, SCREW_TAP_R, N_SCREWS)
+    _cut(comp, _all_profiles(sk3), BASE_H)
 
 
 def _make_fin_assembly(comp, cx, cy):
     """
     Fin_Assembly
     ────────────
-    Collar (22 mm dia, 4.4 mm hole) with 8 detent recesses on the bottom,
-    lofted fin: 14 × 4.5 mm ellipse at collar top → 5 × 1.5 mm at tip (25 mm tall).
+    Collar (26 mm dia, blind 5 mm hole for the post) with 8 Ø2.5 mm
+    clearance holes through the full thickness, plus the lofted fin:
+    14 × 4.5 mm ellipse at collar top → 5 × 1.5 mm at tip (25 mm tall).
     Centred at (cx, cy) so it sits beside Fin_Base_Plate in the viewport.
     """
     xy = comp.xYConstructionPlane
@@ -211,9 +220,9 @@ def _make_fin_assembly(comp, cx, cy):
     sk_hole.sketchCurves.sketchCircles.addByCenterRadius(_pt(cx, cy), HOLE_R)
     _cut(comp, sk_hole.profiles.item(0), HOLE_D)
 
-    # detent recesses cut from collar bottom (z=0 upward into collar)
-    sk_r = _ring_sketch(comp, xy, cx, cy, BUMP_RNG, RECESS_R, N_BUMPS)
-    _cut(comp, _all_profiles(sk_r), RECESS_D)
+    # Ø2.5 mm clearance holes cut all the way through the collar
+    sk_s = _ring_sketch(comp, xy, cx, cy, SCREW_RNG, SCREW_CLR_R, N_SCREWS)
+    _cut(comp, _all_profiles(sk_s), COLLAR_H)
 
     # fin loft: base ellipse at collar top → tip ellipse 25 mm above
     fin_base = _offset_plane(comp, xy, COLLAR_H)
