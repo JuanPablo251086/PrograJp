@@ -2,12 +2,48 @@
 
 > Read this first if you're picking up the project on a new machine or in a new
 > Claude Code session. Everything you need to continue the design conversation
-> is in here. Pair it with [boatfin.py](boatfin.py).
+> is in here. **There are now two variant scripts — see "Variants" below.**
 
 ## What this is
 
 A small fin for a ~11 × 22 cm boat, 3-D-printable in PLA. Modelled
-parametrically in Autodesk Fusion 360 via a Python script. Two pieces:
+parametrically in Autodesk Fusion 360 via a Python script. Each script
+produces two bodies: a base piece that glues to the hull, and a top piece
+carrying the lofted fin. The fin shape itself is identical across variants;
+only the attachment mechanism between the two pieces differs.
+
+User is targeting FDM PLA printing on a standard 0.4 mm-nozzle machine.
+
+## Variants
+
+There are two scripts in this folder. They share the same fin loft (14 × 4.5
+mm ellipse at base → 5 × 1.5 mm ellipse at tip, 25 mm tall) but differ in how
+the top piece attaches to the hull-mounted base. Both are kept — pick whichever
+makes sense for the build.
+
+| File | Attachment | Base piece | Top piece | When to use |
+|---|---|---|---|---|
+| [boatfin.py](boatfin.py) | 8 × M2.5 screws | Ø26 × 4 mm plate, post + pilot holes | Collar w/ blind hole + clearance holes + fin | Permanent install, locked rotation after install, max strength |
+| [boatfin_velcro.py](boatfin_velcro.py) | Hook-and-loop pad | Plain Ø22 × 3 mm disk | Plain Ø22 × 3 mm disk + fin | Re-orientable on the fly, no hardware, simplest print |
+
+The rest of this document describes the **screwed variant** in depth (it has
+all the design history, tolerance tuning, and FDM gotchas). The velcro variant
+is simple enough that its own file docstring is the complete spec — there's no
+post, no hole, no fasteners, no detents.
+
+### Velcro variant — at a glance
+
+- Both mating surfaces are perfectly flat (no features whatsoever).
+- Stack-up: hull → glue → 3 mm base disk → ~3 mm velcro layer → 3 mm top
+  disk → 25 mm fin. Total fin protrusion ≈ 31 mm.
+- Rotation is freely re-selectable any time by peeling apart and re-pressing.
+- No FDM tolerance concerns (no mating geometry to tune).
+- One thing **not** to do: don't put velcro on the bottom of the base — that
+  face is the glue surface.
+
+## Fin_Base_Plate / Fin_Assembly (screwed variant — `boatfin.py`)
+
+The original design line. Detailed dimensions, decisions, and history follow.
 
 - **Fin_Base_Plate** — flat disk glued to the hull. Has a centre post and 8
   Ø2 mm pilot holes around a 10 mm-radius ring on its top face.
@@ -15,8 +51,6 @@ parametrically in Autodesk Fusion 360 via a Python script. Two pieces:
   out of its top face. 8 Ø2.5 mm clearance holes through the collar align
   with the base's pilot holes; the user picks any 45° rotation at install
   and bolts it down with 8 × M2.5 × 8 mm self-tapping screws.
-
-User is targeting FDM PLA printing on a standard 0.4 mm-nozzle machine.
 
 ## Hard requirements from the user
 
@@ -171,7 +205,12 @@ Skim this so you don't re-hit the same walls.
 ## How to run
 
 1. Open Fusion 360, File → New Design.
-2. Tools → Scripts and Add-ins (Shift+S) → Scripts tab → + → select
-   `boatfin.py`.
+2. Tools → Scripts and Add-ins (Shift+S) → Scripts tab → + → select **one**
+   of:
+   - `boatfin.py` (screwed variant)
+   - `boatfin_velcro.py` (velcro variant)
+
+   Each one only needs to be registered once; afterwards both appear in your
+   Scripts library and you can run whichever variant you want per session.
 3. Run. Two bodies appear in the browser, 30 mm apart.
 4. Right-click each body → Save As Mesh → STL.
